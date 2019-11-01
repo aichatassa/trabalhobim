@@ -81,6 +81,17 @@ int main() {
                 remover(cadastro);
 
                 break;
+                
+           case 6:
+           		
+           		printf("Finalizando.\n");
+           		
+           		break;
+            
+            default:
+            
+            	printf("Entre com o numero da operacao desejada.\n");
+            	
         }
     }while(menu!=6);
 }
@@ -181,7 +192,7 @@ void atualiza(TCadastro cadastro[MAX]) {
     }
     if(cont==0) {
 
-        printf("nao existe essa id\n");
+        printf("Nao existe essa ID!\n");
 
     }
 }
@@ -189,15 +200,19 @@ void atualiza(TCadastro cadastro[MAX]) {
 void remover(TCadastro cadastro[MAX]) {
 
    
-    int i, num;
+    int i, num, contador = 0;
     printf("Digite o ID de quem voce quer remover:\n");
     scanf("%d", &num);
     for(i=-1; i<tam;i++) {
     	if(i == num){
 			
     	    cadastro[i].situacao = 0;
+    	    printf("Remocao concluida!\n");
+    	   	contador++;
     	}
     }
-    
-    printf("Remocao concluida!\n");
+    if(contador == 0)
+    {
+		printf("Nao foi encontrado o ID para remocao!\n");
+	}
 }
